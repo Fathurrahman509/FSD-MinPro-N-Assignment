@@ -10,6 +10,8 @@ app.use(bodyParser.json())
 
 app.use('/members')
 
+kgkgkgkkg
+
 const members= [{
     id: 1,
     name: 'rifaldi'
