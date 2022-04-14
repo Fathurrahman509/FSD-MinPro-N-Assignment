@@ -1,0 +1,26 @@
+[
+  {
+    "id": 3,
+    "password": "eleven",
+    "name": "midori",
+    "address": "surabaya",
+    "join_date": "21 march 2021",
+    "phone_number": "0821-5647-9965"
+  },
+  {
+    "id": 4,
+    "password": "twelve",
+    "name": "histuji",
+    "address": "surabaya",
+    "join_date": "15 march 2021",
+    "phone_number": "0821-1155-2649"
+  },
+  {
+    "id": 5,
+    "password": "thirteen",
+    "name": "broom",
+    "address": "surabaya",
+    "join_date": "21 february 2021",
+    "phone_number": "0821-4235-9695"
+  }
+]

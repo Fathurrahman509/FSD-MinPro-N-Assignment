@@ -1,5 +1,4 @@
 require('dotenv').config()
-const { application } = require('express')
 const express = require('express')
 const app = express()
 const port = process.env.port
@@ -37,9 +36,9 @@ const product = [{
     'price': '8000'
 }]
 
-// app.get('/', (req, res) => {
-//   res.send('Anjayy berhasil')
-// })
+app.get('/', (req, res) => {
+  res.send('Anjayy berhasil')
+})
 
 app.get('/merchant', (req, res) => {
     res.status(200).json(merchant)
@@ -72,10 +71,24 @@ app.get('/detail-merchant', (req,res) => {
     res.status(200).json(foundMerchant)
 })
 
-app.post('./merchant', (req, res) => {
+app.post('/merchant', (req, res) => {
     console.log(req.body)
-    membre.push(req.body)
-    fs.writeFileSync('merchant.json', JSON.stringify(merchant, null, 2))
+    merchant.push(req.body)
+    fs.writeFileSync('merchants.json', JSON.stringify(merchant, null, 2))
+    res.status(201).json(req.body)
+})
+
+app.put('/merchant/:id', (req, res) => {
+    const data = JSON.parse(fs.readFileSync('merchants.json'))
+    console.log(data)
+    for (let i = 0; i < data.length; i++) {
+        if(data[i].id == req.params.id) {
+            console.log(data[i])
+            data[i] = req.body
+            fs.writeFileSync('merchants.json', JSON.stringify(data, null, 2))
+            break;
+        }
+    }
     res.status(201).json(req.body)
 })
 
@@ -108,6 +121,13 @@ app.get('/detail-product', (req,res) => {
         }
     }
     res.status(200).json(foundProduct)
+})
+
+app.post('/product', (req, res) => {
+    console.log(req.body)
+    product.push(req.body)
+    fs.writeFileSync('products.json', JSON.stringify(product, null, 2))
+    res.status(201).json(req.body)
 })
 
 app.listen(port, () => {
