@@ -3,36 +3,37 @@ const { application } = require('express')
 const express = require('express')
 const app = express()
 const port = process.env.port
+const fs = require('fs')
 
 //parse aplication/json
 var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 const merchant = [{
-    "id": 3,
-    "password": 'eleven',
-    "name": 'midori',
+    'id': 3,
+    'password': 'eleven',
+    'name': 'midori',
     'address': 'surabaya',
     'join_date': '21 march 2021',
     'phone_number': '0821-5647-9965',
 }, {
-    "id": 4,
-    "password": 'twelve',
-    "name": 'histuji',
+    'id': 4,
+    'password': 'twelve',
+    'name': 'histuji',
     'address': 'surabaya',
     'join_date': '15 march 2021',
     'phone_number': '0821-1155-2649',
 }]
 
 const product = [{
-    "id": 1,
-    "name": 'cap',
-    "quantity": 'good',
+    'id': 1,
+    'name': 'cap',
+    'quantity': 'good',
     'price': '7000'
 }, {
-    "id": 2,
-    "name": 'shoes',
-    "quantity": 'good',
+    'id': 2,
+    'name': 'shoes',
+    'quantity': 'good',
     'price': '8000'
 }]
 
@@ -73,6 +74,8 @@ app.get('/detail-merchant', (req,res) => {
 
 app.post('./merchant', (req, res) => {
     console.log(req.body)
+    membre.push(req.body)
+    fs.writeFileSync('merchant.json', JSON.stringify(merchant, null, 2))
     res.status(201).json(req.body)
 })
 
