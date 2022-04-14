@@ -92,6 +92,7 @@ app.put('/merchant/:id', (req, res) => {
     res.status(201).json(req.body)
 })
 
+
 app.get('/product', (req, res) => {
     res.status(200).json(product)
 })
@@ -127,6 +128,20 @@ app.post('/product', (req, res) => {
     console.log(req.body)
     product.push(req.body)
     fs.writeFileSync('products.json', JSON.stringify(product, null, 2))
+    res.status(201).json(req.body)
+})
+
+app.put('/product/:id', (req, res) => {
+    const data = JSON.parse(fs.readFileSync('products.json'))
+    console.log(data)
+    for (let i = 0; i < data.length; i++) {
+        if(data[i].id == req.params.id) {
+            console.log(data[i])
+            data[i] = req.body
+            fs.writeFileSync('products.json', JSON.stringify(data, null, 2))
+            break;
+        }
+    }
     res.status(201).json(req.body)
 })
 
