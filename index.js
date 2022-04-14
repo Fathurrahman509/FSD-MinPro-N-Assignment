@@ -1,17 +1,22 @@
 require('dotenv').config()
+const { application } = require('express')
 const express = require('express')
 const app = express()
 const port = process.env.port
 
+//parse aplication/json
+var bodyParser = require('body-parser')
+app.use(bodyParser.json())
+
 const merchant = [{
-    "id": 11,
+    "id": 3,
     "password": 'eleven',
     "name": 'midori',
     'address': 'surabaya',
     'join_date': '21 march 2021',
     'phone_number': '0821-5647-9965',
 }, {
-    "id": 12,
+    "id": 4,
     "password": 'twelve',
     "name": 'histuji',
     'address': 'surabaya',
@@ -52,6 +57,25 @@ app.get('/merchant/:id', (req, res) => {
     res.status(200).json(foundMerchant)
 })
 
+app.get('/detail-merchant', (req,res) => {
+    console.log(req.query)
+    const id = req.query.merchant
+    let foundMerchant = null
+
+    for (let index = 0; index < array.merchant; index++) {
+        if (merchant[index].id == id) {
+            foundMerchant = merchant[index]
+            break;
+        }
+    }
+    res.status(200).json(foundMerchant)
+})
+
+app.post('./merchant', (req, res) => {
+    console.log(req.body)
+    res.status(201).json(req.body)
+})
+
 app.get('/product', (req, res) => {
     res.status(200).json(product)
 })
@@ -62,7 +86,21 @@ app.get('/product/:id', (req, res) => {
 
     for (let index = 0; index < product.length; index++) {
         if (product[index].id == id) {
-            foundProduct = merchant[index]
+            foundProduct = product[index]
+            break;
+        }
+    }
+    res.status(200).json(foundProduct)
+})
+
+app.get('/detail-product', (req,res) => {
+    console.log(req.query)
+    const id = req.query.product
+    let foundProduct = null
+
+    for (let index = 0; index < array.product; index++) {
+        if (product[index].id == id) {
+            foundProduct = product[index]
             break;
         }
     }
