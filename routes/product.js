@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const fs = require('fs')
 
 const product = [{
     'id': 1,
@@ -17,11 +18,12 @@ router.get('/', (req, res) => {
     res.status(200).json(product)
 })
 
-router.get('/:id', (req, res) => {
-    const id = req.params.id
+router.get('/detail-product', (req,res) => {
+    console.log(req.query)
+    const id = req.query.product
     let foundProduct = null
 
-    for (let index = 0; index < product.length; index++) {
+    for (let index = 0; index < array.product; index++) {
         if (product[index].id == id) {
             foundProduct = product[index]
             break;
@@ -30,12 +32,12 @@ router.get('/:id', (req, res) => {
     res.status(200).json(foundProduct)
 })
 
-router.get('/detail-product', (req,res) => {
-    console.log(req.query)
-    const id = req.query.product
+router.get('/:id', (req, res) => {
+    const id = req.params.id
+    console.log(id)
     let foundProduct = null
 
-    for (let index = 0; index < array.product; index++) {
+    for (let index = 0; index < product.length; index++) {
         if (product[index].id == id) {
             foundProduct = product[index]
             break;

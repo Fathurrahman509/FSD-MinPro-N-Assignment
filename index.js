@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const port = process.env.port
-const fs = require('fs')
+// const fs = require('fs')
 const merchant = require('./routes/merchant.js')
 const product = require('./routes/product.js')
 

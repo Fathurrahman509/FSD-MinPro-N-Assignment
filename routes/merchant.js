@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
-
+const fs = require('fs')
 
 const merchant = [{
     'id': 3,
@@ -23,11 +22,12 @@ router.get('/', (req, res) => {
     res.status(200).json(merchant)
 })
 
-router.get('/:id', (req, res) => {
-    const id = req.params.id
+router.get('/detail-merchant', (req,res) => {
+    console.log(req.query)
+    const id = req.query.merchant
     let foundMerchant = null
 
-    for (let index = 0; index < merchant.length; index++) {
+    for (let index = 0; index < array.merchant; index++) {
         if (merchant[index].id == id) {
             foundMerchant = merchant[index]
             break;
@@ -36,12 +36,12 @@ router.get('/:id', (req, res) => {
     res.status(200).json(foundMerchant)
 })
 
-router.get('/detail-merchant', (req,res) => {
-    console.log(req.query)
-    const id = req.query.merchant
+router.get('/:id', (req, res) => {
+    const id = req.params.id
+    console.log(id)
     let foundMerchant = null
 
-    for (let index = 0; index < array.merchant; index++) {
+    for (let index = 0; index < merchant.length; index++) {
         if (merchant[index].id == id) {
             foundMerchant = merchant[index]
             break;
