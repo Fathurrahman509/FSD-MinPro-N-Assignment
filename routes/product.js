@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const fs = require('fs')
+const { v4: uuidv4 } = require('uuid')
+
 const controllersProduct = require('../controllers/product.js')
 
 
@@ -49,18 +51,8 @@ router.get('/:id', (req, res) => {
 
 router.post('/', controllersProduct.createProduct)
 
-router.put('/:id', (req, res) => {
-    const data = JSON.parse(fs.readFileSync('products.json'))
-    console.log(data)
-    for (let i = 0; i < data.length; i++) {
-        if(data[i].id == req.params.id) {
-            console.log(data[i])
-            data[i] = req.body
-            fs.writeFileSync('products.json', JSON.stringify(data, null, 2))
-            break;
-        }
-    }
-    res.status(201).json(req.body)
-})
+router.put('/:id', controllersProduct.updateProduct)
+
+router.delete('/:id', controllersProduct.deleteProduct)
 
 module.exports = router

@@ -16,5 +16,26 @@
     "name": "jacket",
     "quantity": "good",
     "price": "7000"
+  },
+  {
+    "id": "d30a33f1-67b7-47b9-9abd-55f1176eaa67"
+  },
+  {
+    "name": "cap",
+    "quantity": "good",
+    "price": "7000",
+    "id": "4d1bed9f-5725-492a-840d-6e89defb3bab"
+  },
+  {
+    "name": "shoes",
+    "quantity": "good",
+    "price": "8000",
+    "id": "69a2e8ce-d43a-4341-b403-d240065cc0dc"
+  },
+  {
+    "name": "jacket",
+    "quantity": "good",
+    "price": "7000",
+    "id": "ab06d021-e21d-479f-b359-39af57ac3f8e"
   }
 ]

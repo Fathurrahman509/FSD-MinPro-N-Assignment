@@ -33,8 +33,7 @@ class merchant {
     //delete
     static deleteMerchant(data) {
         const allDataDeleteMerchant = JSON.parse(fs.readFileSync('merchants.json'))
-        allDataDeleteMerchant = allDataDeleteMerchant.filter((data) => allDataDeleteMerchant.data == data)
-        return data
+        allDataDeleteMerchant = allDataDeleteMerchant.filter((merchant) => allDataDeleteMerchant.data == data)
     }
 }
 

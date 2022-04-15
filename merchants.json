@@ -22,5 +22,32 @@
     "address": "surabaya",
     "join_date": "21 february 2021",
     "phone_number": "0821-4235-9695"
+  },
+  {
+    "id": "206ae339-1ba8-4e71-9b56-e03eeb375a0b"
+  },
+  {
+    "password": "eleven",
+    "name": "midori",
+    "address": "surabaya",
+    "join_date": "21 march 2021",
+    "phone_number": "0821-5647-9965",
+    "id": "94803d12-624f-45d1-baa1-f73566779dd6"
+  },
+  {
+    "password": "twelve",
+    "name": "histuji",
+    "address": "surabaya",
+    "join_date": "15 march 2021",
+    "phone_number": "0821-1155-2649",
+    "id": "b861065c-a6ff-494b-a061-335edc2f281d"
+  },
+  {
+    "password": "thirteen",
+    "name": "broom",
+    "address": "surabaya",
+    "join_date": "21 february 2021",
+    "phone_number": "0821-4235-9695",
+    "id": "500f0d83-6866-48b5-b8b8-ff48ddbcee67"
   }
 ]
