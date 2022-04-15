@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const fs = require('fs')
+const controllersProduct = require('../controllers/product.js')
+
+
 
 const product = [{
     'id': 1,
@@ -14,9 +17,7 @@ const product = [{
     'price': '8000'
 }]
 
-router.get('/', (req, res) => {
-    res.status(200).json(product)
-})
+router.get('/', controllersProduct.getProduct)
 
 router.get('/detail-product', (req,res) => {
     console.log(req.query)
@@ -46,12 +47,7 @@ router.get('/:id', (req, res) => {
     res.status(200).json(foundProduct)
 })
 
-router.post('/', (req, res) => {
-    console.log(req.body)
-    product.push(req.body)
-    fs.writeFileSync('products.json', JSON.stringify(product, null, 2))
-    res.status(201).json(req.body)
-})
+router.post('/', controllersProduct.createProduct)
 
 router.put('/:id', (req, res) => {
     const data = JSON.parse(fs.readFileSync('products.json'))
