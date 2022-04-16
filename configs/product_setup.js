@@ -1,4 +1,4 @@
-const db = require('./product_db')
+const dbProduct = require('./product_db')
 
 const crateProduct = `
     CREATE TABLE product(
@@ -7,8 +7,8 @@ const crateProduct = `
     )
 `
 
-db.serialize(() => {
-    db.run(crateProduct, (err) => {
+dbProduct.serialize(() => {
+    dbProduct.run(crateProduct, (err) => {
         if(!err) {
             console.log('table created')
         } else {

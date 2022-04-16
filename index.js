@@ -14,17 +14,9 @@ app.use(bodyParser.json())
 app.use('/merchant', merchant)
 app.use('/product', product)
 
-
-
-
 app.get('/', (req, res) => {
   res.send('Anjayy berhasil')
 })
-
-
-
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

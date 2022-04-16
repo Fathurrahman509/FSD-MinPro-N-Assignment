@@ -1,5 +1,6 @@
 const fs = require('fs')
 const { v4: uuidv4 } = require('uuid')
+const db = require('./merchant_db.js')
 
 class merchant {
     //get
@@ -14,6 +15,18 @@ class merchant {
         allDataMerchant.push({...data, id: uuidv4()})
         // allDataMerchant.push(data)
         fs.writeFileSync('merchants.json', JSON.stringify(allDataMerchant, null, 2))
+    }
+
+    // create database
+    static createMerchantDatabase(data) {
+        const query = `INSERT into merchants (id, name) VALUES (?, ?)`
+        
+        db.run(query, [data.id, data, data.name]), function (err) {
+            if(err) {
+                console.log(err)
+            }
+        }
+        
     }
 
     //put

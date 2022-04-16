@@ -16,6 +16,18 @@ class product {
         fs.writeFileSync('products.json', JSON.stringify(allDataProduct, null, 2))
     }
 
+    // create database
+    static createProductDatabase(data) {
+        const query = `INSERT into products (id, name) VALUES (?, ?)`
+        
+        dbProduct.run(query, [data.id, data, data.name]), function (err) {
+            if(err) {
+                console.log(err)
+            }
+        }
+        
+    }
+
     //put 
     static updateProduct(data) {
         const allDataUpdateProduct = JSON.parse(fs.readFileSync('products.json'))
