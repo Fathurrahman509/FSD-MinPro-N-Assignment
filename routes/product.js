@@ -51,6 +51,8 @@ router.get('/:id', (req, res) => {
 
 router.post('/', controllersProduct.createProduct)
 
+router.post('/', controllersProduct.findByIdProduct)
+
 router.put('/:id', controllersProduct.updateProduct)
 
 router.delete('/:id', controllersProduct.deleteProduct)

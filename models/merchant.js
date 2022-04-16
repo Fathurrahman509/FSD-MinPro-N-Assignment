@@ -35,6 +35,11 @@ class merchant {
         const allDataDeleteMerchant = JSON.parse(fs.readFileSync('merchants.json'))
         allDataDeleteMerchant = allDataDeleteMerchant.filter((merchant) => allDataDeleteMerchant.data == data)
     }
+
+    static findByIdMerchantModel(id){
+        const allDataFindById = JSON.parse(fs.readFileSync('merchants.json'))
+        return findByIdMerchantModel(val => val.id == id)
+    }
 }
 
 module.exports = merchant

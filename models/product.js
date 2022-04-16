@@ -35,6 +35,12 @@ class product {
         const allDataDeleteProduct = JSON.parse(fs.readFileSync('products.json'))
         allDataDeleteProduct = allDataDeleteProduct.filter((product) => allDataDeleteProduct.data == data)
     }
+
+    static findByIdProductModel(id){
+        const allDataFindById = JSON.parse(fs.readFileSync('merchants.json'))
+        return findByIdProductModel(val => val.id == id)
+    }
+
 }
 
 module.exports = product

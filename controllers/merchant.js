@@ -11,6 +11,21 @@ class controllersMerchant {
         res.status(201).json(data)
     }
 
+    static findByIdMerchant (req, res) {
+        const data = req.body
+        if(!data.id) {
+            res.status(400).json({message:'id:required'})
+        }
+
+        const existingId = merchant.findByIdMerchantModel(data.id)
+        if(existingId) {
+            res.status(400).json({message:'id: is already'})
+        }
+
+        merchant.createMerchant(data)
+        res.status(201).json(data)
+    }
+
     static updateMerchant (req, res) {
         const data = req.body
         merchant.updateMerchant(data)

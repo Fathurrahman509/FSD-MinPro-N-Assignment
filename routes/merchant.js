@@ -54,6 +54,8 @@ router.get('/:id', (req, res) => {
 
 router.post('/', controllersMerchant.createMerchant)
 
+router.post('/', controllersMerchant.findByIdMerchant)
+
 router.put('/:id', controllersMerchant.updateMerchant)
 
 router.delete('/:id', controllersMerchant.deleteMerchant)
